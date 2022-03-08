@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "google-spreadsheet": "^3.2.0"
+  }
+}
