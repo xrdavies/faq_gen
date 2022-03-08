@@ -5,10 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 async function main() {
-  // Initialize the sheet - doc ID is the long id in the sheets URL
   const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_DOC_ID);
-
-  // doc.useApiKey('AIzaSyD5Wwul0LVg1xdt_jdYtgWxN7-D55ytyCI')
 
   await doc.useServiceAccountAuth({
     client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
