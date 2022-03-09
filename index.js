@@ -43,8 +43,8 @@ async function main() {
         continue;
       }
 
-      fs.writeSync(faq_cn, `- _Q${qnum.value}_ **${qcn.value}**\n\n  ${acn.value}\n\n`);
-      fs.writeSync(faq_en, `- _Q${qnum.value}_ **${qen.value}**\n\n  ${aen.value}\n\n`);
+      fs.writeSync(faq_cn, `- _${qnum.value}._ **${qcn.value}**\n\n  ${acn.value}\n\n`);
+      fs.writeSync(faq_en, `- _${qnum.value}._ **${qen.value}**\n\n  ${aen.value}\n\n`);
     }
   }
 
