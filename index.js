@@ -18,8 +18,6 @@ async function main() {
 
   console.log("sheet number", doc.sheetCount);
 
-
-
   const faq_cn = fs.openSync('./faq_cn.md', 'w');
   const faq_en = fs.openSync('./faq_en.md', 'w');
 
@@ -31,8 +29,8 @@ async function main() {
     console.log(sheet.title);
     console.log(sheet.headerValues);
 
-    fs.writeSync(faq_cn, `# ${sheet.title}\n`);
-    fs.writeSync(faq_en, `# ${sheet.title}\n`);
+    fs.writeSync(faq_cn, `## ${sheet.title}\n`);
+    fs.writeSync(faq_en, `## ${sheet.title}\n`);
 
     for (let rowIdx = 1; rowIdx < sheet.rowCount; rowIdx++) {
       const qnum = sheet.getCell(rowIdx, 0);
@@ -45,8 +43,8 @@ async function main() {
         continue;
       }
 
-      fs.writeSync(faq_cn, `## Q${qnum.value} ${qcn.value}\n\n ${acn.value}\n\n`);
-      fs.writeSync(faq_en, `## Q${qnum.value} ${qen.value}\n\n ${aen.value}\n\n`);
+      fs.writeSync(faq_cn, `- _Q${qnum.value}_ **${qcn.value}**\n  ${acn.value}\n\n`);
+      fs.writeSync(faq_en, `- _Q${qnum.value}_ **${qen.value}**\n  ${aen.value}\n\n`);
     }
   }
 
