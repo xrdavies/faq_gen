@@ -52,8 +52,9 @@ async function main() {
   fs.closeSync(faq_en);
 }
 
-(async function () {
-  await main();
-}());
-
-
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
