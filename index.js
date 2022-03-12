@@ -6,8 +6,8 @@ dotenv.config();
 
 async function main() {
   
-  console.log("GOOGLE_SHEET_DOC_ID", process.env.GOOGLE_SHEET_DOC_ID);
-  console.log("GOOGLE_SERVICE_ACCOUNT_EMAIL", process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL);
+  //console.log("GOOGLE_SHEET_DOC_ID", process.env.GOOGLE_SHEET_DOC_ID);
+  //console.log("GOOGLE_SERVICE_ACCOUNT_EMAIL", process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL);
   
   const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_DOC_ID);
 
