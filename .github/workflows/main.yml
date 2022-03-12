@@ -7,7 +7,6 @@ jobs:
   create-pr-by-issue:
     name: Create Pull Request
     runs-on: ubuntu-latest
-    environment: GOOGLE_SHEET_DOC_ID
 
     steps:
       - name: Checkout
