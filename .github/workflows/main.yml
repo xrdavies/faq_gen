@@ -25,9 +25,9 @@ jobs:
           git config --local user.name "Frozen"
           git config --local user.email "1884084+xrdavies@users.noreply.github.com"
           yarn
-          export GOOGLE_SHEET_DOC_ID=${{ secrets.GOOGLE_SHEET_DOC_ID }}
-          export GOOGLE_SERVICE_ACCOUNT_EMAIL=${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
-          export GOOGLE_PRIVATE_KEY=${{ secrets.GOOGLE_PRIVATE_KEY }}
+          export GOOGLE_SHEET_DOC_ID=“${{ secrets.GOOGLE_SHEET_DOC_ID }}”
+          export GOOGLE_SERVICE_ACCOUNT_EMAIL=“${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}”
+          export GOOGLE_PRIVATE_KEY=“${{ secrets.GOOGLE_PRIVATE_KEY }}”
           node index.js
           
       - name: Commit changes
