@@ -22,6 +22,7 @@ jobs:
         run: |
           git config --local user.name "Frozen"
           git config --local user.email "1884084+xrdavies@users.noreply.github.com"
+          yarn
           node index.js
           env:
             GOOGLE_SHEET_DOC_ID: ${{ secrets.GOOGLE_SHEET_DOC_ID }}
