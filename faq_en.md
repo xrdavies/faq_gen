@@ -112,9 +112,30 @@
   We are an open-source platform, all our code is available for the public in our GitHub, community can check our contributions there https://github.com/gear-tech . In GitHub, developers can find the main Gear component, Gear node, a set of tools for interacting with a Gear node and a library for developing smart contracts.
 
 ## Technical
+- _2006._ **How can I run the Gear node?**
+
+  Follow the instructions from this article on how to set up and run Gear node under MacOS, Linux and Windows: https://wiki.gear-tech.io/node/setting-up
+
+- _2007._ **Are there rewards for running nodes?**
+
+  Running a node in a production network will be incentivized. There are no regular rewards for running nodes in a test net, but participation in community events is also incentivized. Stay tuned.
+
+- _2009._ **What's the difference between smart contracts written on Solidity and Gear?**
+
+  Solidity is a language developed exclusively for smart contracts running on EVM blockchains. This language is quite new, so a lot of functionality needs to be written on their own.
+Gear provides standard library for smart contracts written on common language - Rust. The library includes necessary and sufficient functions and methods to implement arbitrary logic in smart-contracts. It makes smart contracts development on Gear much more efficient than on Solidity.
+
+- _2010._ **Is there a tutorial about how to deploy smart contracts to the network?**
+
+  Yes, this article covers all necessary steps on how to write and deploy your smart contracts: https://wiki.gear-tech.io/getting-started-in-5-minutes
+
+- _2011._ **What is the date of the public testnet launch?**
+
+  The public testnet launch is upcoming soon. Meanwhile, you can use the Gear Idea portal to interact with testnet.
+
 - _2001._ **Is Gear's Actor parallel model similar to Solana's Sealevel parallel model?**
 
-  Technically they have different approaches but aim for the same goal - parallel processing of multiple transactions. Sealevel is based on interfaces that tell the kernel ahead of time all the memory the user wants to read or write. This allows the OS to prefetch, prepare the device, and execute the operation concurrently if the device allows it. On Solana, each instruction tells the VM which accounts it wants to read and write ahead of time. This is the root of their optimizations to the VM. It allows to sort millions of pending transactions and schedule all the non-overlapping transactions in parallel. Note: Solana’s Sealevel was introduced 2 years ago and looks abandoned https://github.com/solana-labs/sealevel. Gear uses message passing communication model between actors. Each program (actor) has an individual isolated memory space which allows parallelization of message processing on a Gear node. Number of parallel processing streams equals the number of node’s CPU cores. Gear engine divides the total amount of targeted programs to the number of streams and creates a message pool for each stream. All messages addressed to a particular program appear in a single processing stream.
+  Technically they have different approaches but aim for the same goal - parallel processing of multiple transactions. Sealevel is based on interfaces that tell the kernel ahead of time all the memory the user wants to read or write. This allows the OS to prefetch, prepare the device, and execute the operation concurrently if the device allows it. On Solana, each instruction tells the VM which accounts it wants to read and write ahead of time. This is the root of their optimizations to the VM. It allows to sort millions of pending transactions and schedule all the non-overlapping transactions in parallel. Gear uses message passing communication model between actors. Each program (actor) has an individual isolated memory space which allows parallelization of message processing on a Gear node. Number of parallel processing streams equals the number of node’s CPU cores. Gear engine divides the total amount of targeted programs to the number of streams and creates a message pool for each stream. All messages addressed to a particular program appear in a single processing stream.
 
 - _2002._ **How does Gear's multi-threaded/parallel mode avoid frequent rollbacks and confusion (Whether the multiple threads in a process should be written into the same block)?**
 
@@ -122,55 +143,20 @@
 
 - _2003._ **What are the difficulties in the implementation of the Actor model and the multi-threading as well as the parallel mechanism? How did the Gear team overcome these difficulties?**
 
-  There are no difficulties in particular, we just need to have a well thought out architecture. Potential complexity of parallel processing might be related with determinism, since different nodes have a different number of CPU cores. It will be overcomed via the development of the special cutting edge algorithms.
+  There are no difficulties in particular in the presence of a well thought out architecture. Potential complexity of parallel processing might be related with determinism, since different nodes have a different number of CPU cores. It will be overcomed via the development of the special cutting edge algorithms.
 
 - _2004._ **Does Gear support most of Rust's native features (like async/await, etc.)?**
 
   Yes, Gear natively provides custom `std` functions including arbitrary async/await syntax for any programs. Also everything non-std is supported as well as unit/integration tests.
 
-- _2005._ **Does Gear now support writing contracts in C language? Are there any other compatibility solutions in the future? Will Gear consider EVM compatibility?**
+- _2005._ **Does Gear support writing contracts in C language? Are there any other compatibility solutions in the future? Will Gear consider EVM compatibility?**
 
   Gear allows to run WebAssembly programs compiled from many popular languages, such as C/C++, Rust etc. Regarding EVM compatibility, Gear’s programs will be able to interact with programs running on EVM machines in different networks when Gear becomes a Polkadot parachain.
 
-- _2006._ **Can we run the node now?**
+- _2014._ **What mostly differentiate Gear from other smart contyract platforms using Wasm?**
 
-  Running the Gear node is the same as running the BTC and ETH nodes. There is non limitation for that.
-
-- _2007._ **Are there rewards for running nodes?**
-
-  There are no rewards for running nodes.
-
-- _2008._ **What are the benefits of running Gear nodes?**
-
-  What are the benefits for individuals to run ETH and BTC nodes? What you can get is the same as running Gear. As an ecosystem, decentralization can be increased. As individuals, transactions can be verified independently, but there is no obvious financial incentive for individuals.
-
-- _2009._ **What's the difference between Solidity and Gear contracts?**
-
-  The message mechanism of Gear is different from that of Solidity. Solidity requires nonce to ensure the execution order with a single account. Gear does not need this as long as you have enough gas.
-
-- _2010._ **Is the tutorial for deploying smart contracts the linux version?**
-
-  Yes, you can try to deploy on Windows using wsl.
-
-- _2011._ **Does the public testnet launch?**
-
-  The public testnet haven't been launched yet and you can use the link https://idea.gear-tech.io/ to interact with testnet.
-
-- _2012._ **I heard about I need some test Token for testing the  testnet?**
-
-  Yes, you need to claim test token for testing.
-
-- _2013._ **Are the tests that can be taken at the moment only  in the road of testnet?**
-
-   You can test on the link: https://idea.gear-tech.io/ or on your local node.
-
-- _2014._ **I can see NEAR blockchain also uses Wasm compiled smart contracts, making it compete in the same space. However, as a Polkadot parachain, Gear would benefit from the Polkadot relay chain. Has such a comparison has been made yet? I don't mean jumping straight into "competitor analysis" as a means to bash NEAR in any way, I think it can help people understand more about the tech.**
-
-  Besides Gear also will have access to all relay chain ecosystem (messaging to parachains and bridges), Gear also has completely different architecture under the hood. First, Gear programs don’t call each other synchronously, they exchange messages that will be processed (and replied) in future. Second, there is no key-value storage api for gear programs and subsequent user api -- for Gear program, all state (memory pages) is saved automatically. All of these makes Gear parallelizable and shareable by design.
-
-- _2015._ **So Substrate Wasm support does not mean that you can write smart contracts in different programming languages such as C++? What does Substrate Wasm support mean then? That you can create a blockchain in those languages?**
-
-  Wasm support doesn't mean smart contract development environment support. Under the hood, substrate uses Wasm implementation of some consensus pieces required for forkless updates, etc. It is used as a technology. You can read more on that here: https://wiki.polkadot.network/docs/learn-wasm To be a little more specific, we use Substrate's support for Wasm in order to create a full smart contract development environmen.
+  First of all, Gear takes advantages of Actor model model for inter-process communications. In this model, programs never share any state and just exchange messages between each other. It gives a way to implement Actor-based concurrency inside programs (smart-contracts) logic. Also this architecture enables processes parallelisation wich makes message processing even faster and cheaper.
+As a future parachain of Polkadot/Kusama, Gear takes benefits from the relay chain that enables routing of arbitrary messages between chains.
 
 ## Community
 - _3001._ **I’m a developer, and I’m interested in contributing to your project alongsides earning, Do you have any Bug Bounty to check for vulnerabilities ? How can i become a part of "Gear Technologies' ?**
