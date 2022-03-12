@@ -1,0 +1,30 @@
+name: issues actions
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  create-pr-by-issue:
+    name: Create Pull Request
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+        
+      - name: Build
+        run: |
+          git config --local user.name "Frozen"
+          git config --local user.email "1884084+xrdavies@users.noreply.github.com"
+          node index.js
+          
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Automatic build"
+          git push --set-upstream origin master
