@@ -22,6 +22,10 @@ jobs:
           git config --local user.name "Frozen"
           git config --local user.email "1884084+xrdavies@users.noreply.github.com"
           node index.js
+          env:
+            GOOGLE_SHEET_DOC_ID: ${{ secrets.GOOGLE_SHEET_DOC_ID }}
+            GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
+            GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
           
       - name: Commit changes
         run: |
