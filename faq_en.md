@@ -112,9 +112,9 @@
   We are an open-source platform, all our code is available for the public in our GitHub, community can check our contributions there https://github.com/gear-tech . In GitHub, developers can find the main Gear component, Gear node, a set of tools for interacting with a Gear node and a library for developing smart contracts.
 
 ## Technical
-- _2006._ **How can I run the Gear node?**
+- _2006._ **Can I run the Gear node now?**
 
-  Follow the instructions from this article on how to set up and run Gear node under MacOS, Linux and Windows: https://wiki.gear-tech.io/node/setting-up
+  Yes, follow the instructions from this article on how to set up and run Gear node under MacOS, Linux and Windows: https://wiki.gear-tech.io/node/setting-up 
 
 - _2007._ **Are there rewards for running nodes?**
 
@@ -153,11 +153,6 @@ Gear provides standard library for smart contracts written on common language - 
 
   Gear allows to run WebAssembly programs compiled from many popular languages, such as C/C++, Rust etc. Regarding EVM compatibility, Gear’s programs will be able to interact with programs running on EVM machines in different networks when Gear becomes a Polkadot parachain.
 
-- _2014._ **What mostly differentiate Gear from other smart contyract platforms using Wasm?**
-
-  First of all, Gear takes advantages of Actor model model for inter-process communications. In this model, programs never share any state and just exchange messages between each other. It gives a way to implement Actor-based concurrency inside programs (smart-contracts) logic. Also this architecture enables processes parallelisation wich makes message processing even faster and cheaper.
-As a future parachain of Polkadot/Kusama, Gear takes benefits from the relay chain that enables routing of arbitrary messages between chains.
-
 ## Community
 - _3001._ **I’m a developer, and I’m interested in contributing to your project alongsides earning, Do you have any Bug Bounty to check for vulnerabilities ? How can i become a part of "Gear Technologies' ?**
 
@@ -187,7 +182,7 @@ As a future parachain of Polkadot/Kusama, Gear takes benefits from the relay cha
 
   We don't have a token yet, but you can learn all about GEAR from our website at https://gear-tech.io/ For more detailed info you can also check out our wiki page here! https://wiki.gear-tech.io/
 
-- _3008._ **I would like to understand in which batch of auctions you plan to declare your project? How will your token be distributed?**
+- _3008._ **Hi, any update about token sale?**
 
-  The questions you asked we don't have a public answer for just yet, stay tuned for more information!
+  Hello, we are not planning any pre-sale yet. But there is a possibility to participate in various activities and get Gear.
 
