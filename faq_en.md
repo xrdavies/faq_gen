@@ -186,3 +186,8 @@ Gear provides standard library for smart contracts written on common language - 
 
   Hello, we are not planning any pre-sale yet. But there is a possibility to participate in various activities and get Gear.
 
+## Discord Based
+- _4001._ **null**
+
+  null
+
